@@ -158,7 +158,13 @@ button:disabled {
     cursor: default;
 }
 
+/* Copied state */
 button.copied {
+    background: #35b84a;
+}
+
+/* Keep copied color while hovering */
+button.copied:hover:not(:disabled) {
     background: #35b84a;
 }
 
