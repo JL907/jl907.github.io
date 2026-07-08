@@ -34,17 +34,31 @@ async function loadPalworldSettings() {
 
         const display = {
             ServerPlayerMaxNum: "Player Limit",
-            DayTimeSpeedRate: "Day Speed",
-            CollectionDropRate: "Resource Drops",
-            EnemyDropItemRate: "Enemy Drops",
-            CollectionObjectHpRate: "Resource Health",
+            CrossplayPlatforms: "Crossplay",
+
+            ExpRate: "Experience Rate",
+            PalCaptureRate: "Capture Rate",
+            PalSpawnNumRate: "Pal Spawn Rate",
+
             WorkSpeedRate: "Work Speed",
             PalEggDefaultHatchingTime: "Egg Hatch Time",
+
+            CollectionDropRate: "Resource Drops",
+            CollectionObjectHpRate: "Resource Health",
+            EnemyDropItemRate: "Enemy Drops",
+
+            DayTimeSpeedRate: "Day Length",
+            NightTimeSpeedRate: "Night Length",
+
             DeathPenalty: "Death Penalty",
-            bIsPvP: "PvP",
-            bEnableFriendlyFire: "Friendly Fire",
+
+            PlayerStaminaDecreaceRate: "Stamina Decrease Rate",
+            PlayerDamageRateAttack: "Player Damage",
+            PlayerDamageRateDefense: "Player Defense",
+
             bEnableFastTravel: "Fast Travel",
-            CrossplayPlatforms: "Crossplay"
+            bIsPvP: "PvP",
+            bEnableFriendlyFire: "Friendly Fire"
         };
 
         function format(key, value) {
@@ -83,11 +97,57 @@ async function loadPalworldSettings() {
                 return `${value} Minutes`;
             }
 
+            if (key === "DayTimeSpeedRate") {
+                const dayTimes = {
+                    "0.1": "270 minutes",
+                    "0.2": "135 minutes",
+                    "0.3": "90 minutes",
+                    "0.4": "67.5 minutes",
+                    "0.5": "54 minutes",
+                    "0.6": "45 minutes",
+                    "0.7": "38.5 minutes",
+                    "0.8": "33.75 minutes",
+                    "0.9": "30 minutes",
+                    "1": "27 minutes",
+                    "2": "13.5 minutes",
+                    "3": "9 minutes",
+                    "4": "6.75 minutes",
+                    "5": "5.4 minutes"
+                };
+
+                return dayTimes[Number(value)] || `${value}x`;
+            }
+
+            if (key === "NightTimeSpeedRate") {
+                const nightTimes = {
+                    "0.1": "50 minutes",
+                    "0.2": "25 minutes",
+                    "0.3": "16.6 minutes",
+                    "0.4": "12.5 minutes",
+                    "0.5": "10 minutes",
+                    "0.6": "8.3 minutes",
+                    "0.7": "7.2 minutes",
+                    "0.8": "6.25 minutes",
+                    "0.9": "5.5 minutes",
+                    "1": "5 minutes",
+                    "2": "2.5 minutes",
+                    "3": "1.66 minutes",
+                    "4": "1.25 minutes",
+                    "5": "1 minute"
+                };
+
+                return nightTimes[Number(value)] || `${value}x`;
+            }
+
             if (!isNaN(value)) {
                 const num = Number(value);
 
                 // Display all rate values as "2x", "0.5x", etc.
                 if (key.endsWith("Rate")) {
+                    return `${num}x`;
+                }
+
+                if (key.endsWith("RateAttack") || key.endsWith("RateDefense")) {
                     return `${num}x`;
                 }
 
