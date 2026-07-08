@@ -238,14 +238,12 @@ pre {
 
     border-radius:8px;
 
-
-    padding:
-
-        12px 55px 12px 12px;
-
+    padding:12px 55px 12px 12px;
 
     overflow-x:auto;
 
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
 }
 
 
@@ -524,12 +522,21 @@ footer {
 
     }
 
+    pre {
+
+        padding-right:50px;
+
+        font-size:.95rem;
+
+    }
 
     .copyButton {
 
-        width:30px;
+        right:8px;
 
-        height:30px;
+        width:28px;
+
+        height:28px;
 
     }
 
