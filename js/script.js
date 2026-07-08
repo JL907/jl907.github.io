@@ -20,7 +20,7 @@ async function copyText(id, button) {
         button.classList.add("copied");
 
         setTimeout(() => {
-            button.innerHTML = "📋 Copy";
+            button.innerHTML = "Copy";
             button.classList.remove("copied");
         }, 1500);
 
@@ -31,7 +31,7 @@ async function copyText(id, button) {
         button.innerHTML = "❌ Failed";
 
         setTimeout(() => {
-            button.innerHTML = "📋 Copy";
+            button.innerHTML = "Copy";
         }, 1500);
 
     }
