@@ -1,42 +1,39 @@
 /**
- * Attach copy functionality to every copy button.
+ * Copies the contents of an element to the clipboard.
+ *
+ * @param {string} id
+ * @param {HTMLButtonElement} button
  */
+async function copyText(id, button) {
 
-document.querySelectorAll(".copyButton").forEach(button => {
+    const element = document.getElementById(id);
 
-    button.addEventListener("click", () => {
+    if (!element) {
+        return;
+    }
 
-        const targetId = button.dataset.copy;
-        const element = document.getElementById(targetId);
+    try {
 
-        if (!element) {
-            return;
-        }
+        await navigator.clipboard.writeText(element.textContent);
 
-        navigator.clipboard.writeText(element.textContent)
-            .then(() => {
+        button.innerHTML = "✔ Copied";
+        button.classList.add("copied");
 
-                button.innerHTML = "✔";
-                button.classList.add("copied");
-                button.disabled = true;
+        setTimeout(() => {
+            button.innerHTML = "📋 Copy";
+            button.classList.remove("copied");
+        }, 1500);
 
-                setTimeout(() => {
-                    button.innerHTML = "📋 Copy";
-                    button.classList.remove("copied");
-                    button.disabled = false;
-                }, 1500);
+    } catch (error) {
 
-            })
-            .catch(() => {
+        console.error(error);
 
-                button.innerHTML = "❌";
+        button.innerHTML = "❌ Failed";
 
-                setTimeout(() => {
-                    button.innerHTML = "📋 Copy";
-                }, 1500);
+        setTimeout(() => {
+            button.innerHTML = "📋 Copy";
+        }, 1500);
 
-            });
+    }
 
-    });
-
-});
+}
