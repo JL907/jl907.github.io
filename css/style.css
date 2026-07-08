@@ -11,8 +11,10 @@
     --muted: #cccccc;
 
     --blue: #2c8cff;
+
     --green: #4caf50;
     --green-hover: #45a049;
+
     --copied: #35b84a;
 
     --border: rgba(255,255,255,.1);
@@ -35,6 +37,7 @@
     font-weight: 700;
 }
 
+
 * {
     margin: 0;
     padding: 0;
@@ -42,22 +45,15 @@
 }
 
 
-/* ==========================
-   Page
-========================== */
-
 body {
+
     background: var(--background);
+
     color: var(--white);
 
     font-family: 'Gilland', sans-serif;
-    line-height: 1.6;
-}
 
-main {
-    max-width: 1400px;
-    margin: auto;
-    padding: 30px;
+    line-height: 1.6;
 }
 
 
@@ -65,22 +61,45 @@ main {
    Layout
 ========================== */
 
+main {
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 30px;
+
+}
+
+
 .layout {
+
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+
+    grid-template-columns: minmax(0,1fr) 300px;
 
     gap: 24px;
-    padding: 20px;
+
+    padding:20px;
+
 }
+
 
 .main-content {
-    min-width: 0;
+
+    min-width:0;
+
 }
 
+
 .sidebar {
-    position: sticky;
-    top: 20px;
-    height: fit-content;
+
+    position:sticky;
+
+    top:20px;
+
+    height:fit-content;
+
 }
 
 
@@ -89,13 +108,17 @@ main {
 ========================== */
 
 .hero {
-    height: 620px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height:620px;
 
-    text-align: center;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
 
     background:
         linear-gradient(
@@ -104,28 +127,42 @@ main {
         ),
         url("../images/library_hero.png");
 
-    background-size: cover;
-    background-position: center;
+
+    background-size:cover;
+
+    background-position:center;
+
 }
+
 
 .overlay h1 {
-    font-size: 6rem;
+
+    font-size:6rem;
+
 }
+
 
 .overlay p {
-    margin-top: 10px;
-    color: #ddd;
+
+    margin-top:10px;
+
+    color:#ddd;
+
 }
 
+
 .release {
-    display: inline-block;
 
-    margin-top: 25px;
-    padding: 12px 25px;
+    display:inline-block;
 
-    background: var(--blue);
+    margin-top:25px;
 
-    border-radius: 12px;
+    padding:12px 25px;
+
+    background:var(--blue);
+
+    border-radius:12px;
+
 }
 
 
@@ -134,40 +171,51 @@ main {
 ========================== */
 
 .card {
-    background: var(--card);
 
-    margin-bottom: 25px;
-    padding: 25px;
+    background:var(--card);
 
-    border-radius: 14px;
+    padding:25px;
+
+    margin-bottom:25px;
+
+    border-radius:14px;
+
 }
 
+
 .card h2 {
-    margin-bottom: 20px;
+
+    margin-bottom:20px;
+
 }
 
 
 /* ==========================
-   Join Server
+   Server
 ========================== */
 
-.join-server h2 {
-    margin-bottom: 25px;
+.server-item {
+
+    margin-bottom:25px;
+
 }
 
-.server-item {
-    margin-bottom: 25px;
-}
 
 .server-item:last-child {
-    margin-bottom: 0;
+
+    margin-bottom:0;
+
 }
 
-.server-item h3 {
-    margin-bottom: 10px;
 
-    font-size: 1rem;
-    color: var(--muted);
+.server-item h3 {
+
+    margin-bottom:10px;
+
+    color:var(--muted);
+
+    font-size:1rem;
+
 }
 
 
@@ -176,80 +224,145 @@ main {
 ========================== */
 
 .copyBox {
-    display: flex;
 
-    justify-content: space-between;
-    align-items: center;
+    position:relative;
 
-    gap: 20px;
-
-    flex-wrap: wrap;
 }
+
 
 pre {
-    flex: 1;
 
-    background: var(--code);
+    background:var(--code);
 
-    border: 1px solid #3d3d3d;
-    border-radius: 6px;
+    border:1px solid #3d3d3d;
 
-    padding: 8px;
+    border-radius:8px;
 
-    overflow-x: auto;
+
+    padding:
+
+        12px 55px 12px 12px;
+
+
+    overflow-x:auto;
+
 }
 
+
 code {
-    font-family: 'Gilland';
 
-    color: var(--white);
+    font-family:'Gilland';
 
-    font-size: 1.1rem;
+    color:white;
 
-    letter-spacing: 1px;
+    font-size:1.1rem;
 
-    word-break: break-all;
+    letter-spacing:1px;
+
+    word-break:break-all;
+
 }
 
 
 /* ==========================
-   Buttons
+   Copy Button
 ========================== */
 
-button {
-    min-width: 110px;
+.copyButton {
 
-    padding: 10px 18px;
+    position:absolute;
 
-    border: none;
-    border-radius: 10px;
+    right:10px;
 
-    background: var(--blue);
-    color: white;
+    top:50%;
 
-    font-size: .95rem;
+    transform:translateY(-50%);
 
-    cursor: pointer;
+
+    width:32px;
+
+    height:32px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    padding:0;
+
+
+    background:rgba(255,255,255,.05);
+
+
+    color:#9ca3af;
+
+
+    border:
+
+        1px solid rgba(255,255,255,.12);
+
+
+    border-radius:8px;
+
+
+    cursor:pointer;
+
 
     transition:
-        background .2s,
-        transform .15s;
+
+        background .15s ease,
+
+        color .15s ease,
+
+        border-color .15s ease,
+
+        transform .1s ease;
+
 }
 
-button:hover:not(:disabled) {
-    transform: translateY(-2px);
+
+.copyButton:hover {
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
 }
 
-button:active:not(:disabled) {
-    transform: translateY(0);
+
+.copyButton:active {
+
+    transform:
+
+        translateY(-50%)
+
+        scale(.92);
+
 }
 
-button:disabled {
-    cursor: default;
+
+.copyButton svg {
+
+    width:16px;
+
+    height:16px;
+
+    fill:currentColor;
+
 }
 
-button.copied {
-    background: var(--copied);
+
+.copyButton.copied {
+
+    color:var(--copied);
+
+    background:
+
+        rgba(53,184,74,.15);
+
 }
 
 
@@ -258,30 +371,44 @@ button.copied {
 ========================== */
 
 .support {
-    text-align: center;
+
+    text-align:center;
+
 }
+
 
 .supportButton {
-    display: inline-block;
 
-    margin-top: 15px;
-    padding: 12px 24px;
+    display:inline-block;
 
-    border-radius: 8px;
+    margin-top:15px;
 
-    background: var(--green);
+    padding:12px 24px;
 
-    color: white;
 
-    text-decoration: none;
-    font-weight: bold;
+    background:var(--green);
 
-    transition: .2s ease;
+    color:white;
+
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+
+    transition:.2s ease;
+
 }
 
+
 .supportButton:hover {
-    background: var(--green-hover);
-    transform: translateY(-2px);
+
+    background:var(--green-hover);
+
+    transform:translateY(-2px);
+
 }
 
 
@@ -290,34 +417,45 @@ button.copied {
 ========================== */
 
 .settings-list {
-    margin: 0;
-    padding: 0;
+
+    padding:0;
+
 }
+
 
 .settings-list > div,
 .setting {
-    display: flex;
 
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
 
-    padding: 12px 0;
+    justify-content:space-between;
 
-    border-bottom: 1px solid var(--border);
+    align-items:center;
+
+
+    padding:12px 0;
+
+
+    border-bottom:
+
+        1px solid var(--border);
+
 }
 
-.settings-list > div:last-child,
-.setting:last-child {
-    border-bottom: none;
+
+.settings-list:last-child {
+
+    border-bottom:none;
+
 }
 
-.settings-list dt {
-    font-weight: 400;
-}
 
 .settings-list dd {
-    margin: 0;
-    font-weight: 700;
+
+    margin:0;
+
+    font-weight:bold;
+
 }
 
 
@@ -326,11 +464,13 @@ button.copied {
 ========================== */
 
 footer {
-    margin: 40px 0;
 
-    text-align: center;
+    margin:40px 0;
 
-    opacity: .6;
+    text-align:center;
+
+    opacity:.6;
+
 }
 
 
@@ -338,46 +478,70 @@ footer {
    Mobile
 ========================== */
 
-@media (max-width: 768px) {
+@media(max-width:768px) {
+
 
     main {
-        padding: 15px;
+
+        padding:15px;
+
     }
+
 
     .layout {
-        grid-template-columns: 1fr;
-        padding: 10px;
+
+        grid-template-columns:1fr;
+
+        padding:10px;
+
     }
+
 
     .sidebar {
-        position: static;
+
+        position:static;
+
     }
+
 
     .hero {
-        height: 350px;
+
+        height:350px;
+
     }
+
 
     .overlay h1 {
-        font-size: 2.5rem;
+
+        font-size:2.5rem;
+
     }
+
 
     .card {
-        padding: 18px;
+
+        padding:18px;
+
     }
 
-    .copyBox {
-        flex-direction: column;
-        align-items: stretch;
+
+    .copyButton {
+
+        width:30px;
+
+        height:30px;
+
     }
 
-    button {
-        width: 100%;
-    }
 
     .setting {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:5px;
+
     }
 
 }
