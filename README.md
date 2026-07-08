@@ -1,0 +1,1 @@
+Add your own banner.jpg to the repository root. Then enable GitHub Pages.

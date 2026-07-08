@@ -1,0 +1,1 @@
+function copyText(id){navigator.clipboard.writeText(document.getElementById(id).textContent);alert('Copied!');}
