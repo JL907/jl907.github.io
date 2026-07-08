@@ -42,8 +42,7 @@
         <a 
             class="supportButton" 
             href="https://payment.indifferentbroccoli.com/b/9B6fZg9w8a7Q3YE9hu4z80e" 
-            target="_blank"
-            rel="noopener noreferrer">
+            target="_blank">
             Support Server Costs
         </a>
 
@@ -54,27 +53,21 @@
             <h2>🎮 Server Address</h2>
 
             <div class="copyBox">
-                <pre><code id="server" tabindex="0">play.juneaupalworld.com:27170</code></pre>
+                <pre><code id="server">play.juneaupalworld.com:27170</code></pre>
 
                 <button
-                    type="button"
                     class="copyButton"
-                    data-target="server"
-                    aria-controls="server"
-                    aria-label="Copy server address">
+                    onclick="copyText('server', this)">
                     Copy
                 </button>
             </div>
             or
             <div class="copyBox">
-                <pre><code id="server-direct" tabindex="0">172.240.71.87:27170</code></pre>
+                <pre><code id="server-direct">172.240.71.87:27170</code></pre>
 
                 <button
-                    type="button"
                     class="copyButton"
-                    data-target="server-direct"
-                    aria-controls="server-direct"
-                    aria-label="Copy direct server address">
+                    onclick="copyText('server-direct', this)">
                     Copy
                 </button>
             </div>
@@ -86,14 +79,11 @@
             <h2>🔑 Password</h2>
 
             <div class="copyBox">
-                <pre><code id="password" tabindex="0">jpalgg</code></pre>
+                <pre><code id="password">jpalgg</code></pre>
 
                 <button
-                    type="button"
                     class="copyButton"
-                    data-target="password"
-                    aria-controls="password"
-                    aria-label="Copy server password">
+                    onclick="copyText('password', this)">
                     Copy
                 </button>
             </div>
@@ -142,8 +132,6 @@
     <footer>
         Made for the Juneau Palworld Community
     </footer>
-
-    <div id="copy-live" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"></div>
 
     <script src="js/script.js"></script>
 

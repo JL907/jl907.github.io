@@ -5,59 +5,35 @@
  * @param {HTMLButtonElement} button
  */
 async function copyText(id, button) {
+
     const element = document.getElementById(id);
 
-    if (!element || !button) return;
-
-    const text = element.textContent.trim();
-    if (!text) return;
-
-    if (button.disabled) return;
-    button.disabled = true;
-
-    const original = button.dataset.origText || button.innerHTML;
-    button.dataset.origText = original;
-
-    const live = document.getElementById('copy-live');
+    if (!element) {
+        return;
+    }
 
     try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(text);
-        } else {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.setAttribute('readonly', '');
-            ta.style.position = 'absolute';
-            ta.style.left = '-9999px';
-            document.body.appendChild(ta);
-            ta.select();
-            const ok = document.execCommand('copy');
-            document.body.removeChild(ta);
-            if (!ok) throw new Error('execCommand copy failed');
-        }
 
-        button.innerHTML = '✔ Copied';
-        button.classList.add('copied');
-        if (live) live.textContent = 'Copied to clipboard';
+        await navigator.clipboard.writeText(element.textContent);
+
+        button.innerHTML = "✔ Copied";
+        button.classList.add("copied");
 
         setTimeout(() => {
-            button.innerHTML = original;
-            button.classList.remove('copied');
-            button.disabled = false;
-            if (live) live.textContent = '';
-        }, 1400);
-
-        button.focus();
-
-    } catch (err) {
-        console.error(err);
-        button.innerHTML = '❌ Failed';
-        if (live) live.textContent = 'Copy failed';
-        setTimeout(() => {
-            button.innerHTML = original;
-            button.disabled = false;
-            if (live) live.textContent = '';
+            button.innerHTML = "Copy";
+            button.classList.remove("copied");
         }, 1500);
+
+    } catch (error) {
+
+        console.error(error);
+
+        button.innerHTML = "❌ Failed";
+
+        setTimeout(() => {
+            button.innerHTML = "Copy";
+        }, 1500);
+
     }
 
 }
