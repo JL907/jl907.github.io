@@ -1,24 +1,42 @@
 /**
- * Copies the contents of an element to the clipboard.
- *
- * @param {string} id - The ID of the element to copy.
+ * Attach copy functionality to every copy button.
  */
-function copyText(id) {
 
-    const element = document.getElementById(id);
+document.querySelectorAll(".copyButton").forEach(button => {
 
-    if (!element) {
-        return;
-    }
+    button.addEventListener("click", () => {
 
-    const text = element.textContent;
+        const targetId = button.dataset.copy;
+        const element = document.getElementById(targetId);
 
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            alert("Copied!");
-        })
-        .catch(() => {
-            alert("Unable to copy.");
-        });
+        if (!element) {
+            return;
+        }
 
-}
+        navigator.clipboard.writeText(element.textContent)
+            .then(() => {
+
+                button.innerHTML = "✔";
+                button.classList.add("copied");
+                button.disabled = true;
+
+                setTimeout(() => {
+                    button.innerHTML = "📋 Copy";
+                    button.classList.remove("copied");
+                    button.disabled = false;
+                }, 1500);
+
+            })
+            .catch(() => {
+
+                button.innerHTML = "❌";
+
+                setTimeout(() => {
+                    button.innerHTML = "📋 Copy";
+                }, 1500);
+
+            });
+
+    });
+
+});
