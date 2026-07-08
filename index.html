@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Juneau Palworld Server</title>
+    <meta name="description" content="Join the Juneau Palworld community server — server address, password, and settings for Palworld 1.0.">
+    <link rel="icon" href="images/library_hero.png">
+    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -39,7 +42,8 @@
         <a 
             class="supportButton" 
             href="https://payment.indifferentbroccoli.com/b/9B6fZg9w8a7Q3YE9hu4z80e" 
-            target="_blank">
+            target="_blank"
+            rel="noopener noreferrer">
             Support Server Costs
         </a>
 
@@ -50,21 +54,27 @@
             <h2>🎮 Server Address</h2>
 
             <div class="copyBox">
-                <pre><code id="server">play.juneaupalworld.com:27170</code></pre>
+                <pre><code id="server" tabindex="0">play.juneaupalworld.com:27170</code></pre>
 
                 <button
+                    type="button"
                     class="copyButton"
-                    onclick="copyText('server', this)">
+                    data-target="server"
+                    aria-controls="server"
+                    aria-label="Copy server address">
                     Copy
                 </button>
             </div>
             or
             <div class="copyBox">
-                <pre><code id="server-direct">172.240.71.87:27170</code></pre>
+                <pre><code id="server-direct" tabindex="0">172.240.71.87:27170</code></pre>
 
                 <button
+                    type="button"
                     class="copyButton"
-                    onclick="copyText('server-direct', this)">
+                    data-target="server-direct"
+                    aria-controls="server-direct"
+                    aria-label="Copy direct server address">
                     Copy
                 </button>
             </div>
@@ -76,11 +86,14 @@
             <h2>🔑 Password</h2>
 
             <div class="copyBox">
-                <pre><code id="password">jpalgg</code></pre>
+                <pre><code id="password" tabindex="0">jpalgg</code></pre>
 
                 <button
+                    type="button"
                     class="copyButton"
-                    onclick="copyText('password', this)">
+                    data-target="password"
+                    aria-controls="password"
+                    aria-label="Copy server password">
                     Copy
                 </button>
             </div>
@@ -129,6 +142,8 @@
     <footer>
         Made for the Juneau Palworld Community
     </footer>
+
+    <div id="copy-live" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"></div>
 
     <script src="js/script.js"></script>
 
