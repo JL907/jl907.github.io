@@ -1,186 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Juneau Palworld Server</title>
-
     <meta name="description" content="Join the Juneau Palworld community server — server address, password, and settings for Palworld 1.0.">
-
     <link rel="icon" href="images/library_hero.png">
     <meta name="theme-color" content="#ffffff">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
     <header class="hero">
-
         <div class="overlay">
-
             <h1>Juneau Palworld</h1>
-
             <p>Palworld 1.0 Server</p>
-
             <div class="release">
-                <span>Launching</span>
-                <strong>July 10, 2026</strong>
+                <span>Launching In</span>
+                <strong id="countdown">Loading...</strong>
             </div>
-
         </div>
-
     </header>
-
-
     <main>
-
         <div class="layout">
-
-
             <div class="main-content">
-
-
                 <section class="card">
-
                     <h2>Welcome!</h2>
-
                     <p>
                         Welcome to the Juneau Palworld community server.
                         Come explore, build, battle, and enjoy Palworld 1.0 with us!
                     </p>
-
                 </section>
-
-
-
                 <section class="card join-server">
-
-                    <h2>🎮 Join Server</h2>
-
-
+                    <h2>Join Server</h2>
                     <div class="server-item">
-
                         <h3>Server Address</h3>
-
                         <div class="copyBox">
-
                             <pre><code id="server">play.juneaupalworld.com:27170</code></pre>
-
                             <button
                                 class="copyButton"
                                 onclick="copyText('server', this)"
                                 aria-label="Copy server address">
-
                                 <svg viewBox="0 0 24 24">
                                     <path d="M16 1H8C6.9 1 6 1.9 6 3v2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-2h2c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-4zm0 18H4V7h2v10c0 1.1.9 2 2 2h8v0zm4-4H8V3h12v12z"/>
                                 </svg>
-
                             </button>
-
                         </div>
-
                     </div>
-
-
                     <div class="server-item">
-
                         <h3>Password</h3>
-
                         <div class="copyBox">
-
                             <pre><code id="password">jpalgg</code></pre>
-
                             <button
                                 class="copyButton"
                                 onclick="copyText('password', this)"
                                 aria-label="Copy password">
-
                                 <svg viewBox="0 0 24 24">
                                     <path d="M16 1H8C6.9 1 6 1.9 6 3v2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-2h2c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2h-4zm0 18H4V7h2v10c0 1.1.9 2 2 2h8v0zm4-4H8V3h12v12z"/>
                                 </svg>
-
                             </button>
-
                         </div>
-
                     </div>
-
-
                 </section>
-
-
-
             </div>
-
-
-
             <aside class="sidebar">
-
-
                 <section class="card support">
-
-                    <h2>💙 Support the Server</h2>
-
+                    <h2>Support the Server</h2>
                     <p>
                         Help keep the Juneau Palworld server online!
                         Server hosting costs about <strong>$20/month</strong>,
                         and any support goes toward keeping the community running.
                     </p>
-
-
                     <a
                         class="supportButton"
                         href="https://payment.indifferentbroccoli.com/b/9B6fZg9w8a7Q3YE9hu4z80e"
                         target="_blank">
                         Support Server Costs
                     </a>
-
-
                 </section>
-
-
-
                 <section class="card">
-
                     <h2>⚙ Server Settings</h2>
-
                     <dl class="settings-list"></dl>
-
                     <div class="setting">
                         <dt>All Other Settings</dt>
                         <dd>Default</dd>
                     </div>
-
                 </section>
-
-
-
             </aside>
-
-
         </div>
-
-
     </main>
-
-
-
     <footer>
-
         Made for the Juneau Palworld Community
-
     </footer>
-
-
-
     <script src="js/script.js"></script>
-
     <script src="js/settings.js"></script>
+    <script>
+        // Countdown to Thu, July 9, 2026 at 7:30 PM AKDT (UTC-8)
+        var countdownTarget = new Date("2026-07-09T19:30:00-08:00").getTime();
 
+        function updateCountdown() {
+            var now = new Date().getTime();
+            var distance = countdownTarget - now;
+            var el = document.getElementById("countdown");
 
+            if (distance <= 0) {
+                el.textContent = "We're live!";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            var parts = [];
+            if (days > 0) parts.push(days + "d");
+            parts.push(hours + "h");
+            parts.push(minutes + "m");
+            parts.push(seconds + "s");
+
+            el.textContent = parts.join(" ");
+        }
+
+        updateCountdown();
+        var countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
-
 </html>
