@@ -42,51 +42,51 @@ async function loadPalworldSettings() {
             // Region: "Region",
 
             // World
-            DayTimeSpeedRate: "Day Length",
-            NightTimeSpeedRate: "Night Length",
+            // DayTimeSpeedRate: "Day Length",
+            // NightTimeSpeedRate: "Night Length",
             // SupplyDropSpan: "Supply Drop Interval",
             // AutoSaveSpan: "Auto Save Interval",
 
             // Progression
-            ExpRate: "Experience Rate",
-            WorkSpeedRate: "Work Speed",
+            // ExpRate: "Experience Rate",
+            // WorkSpeedRate: "Work Speed",
             PalEggDefaultHatchingTime: "Egg Hatch Time",
 
             // Pals
-            PalCaptureRate: "Capture Rate",
-            PalSpawnNumRate: "Pal Spawn Rate",
-            EnablePredatorBossPal: "Predator Bosses",
+            // PalCaptureRate: "Capture Rate",
+            // PalSpawnNumRate: "Pal Spawn Rate",
+            // EnablePredatorBossPal: "Predator Bosses",
             // bIsRandomizerPalLevelRandom: "Random Pal Levels",
 
             // Resource Gathering
-            CollectionDropRate: "Resource Drops",
-            CollectionObjectHpRate: "Resource Health",
-            CollectionObjectRespawnSpeedRate: "Resource Respawn",
-            EnemyDropItemRate: "Enemy Drops",
+            // CollectionDropRate: "Resource Drops",
+            // CollectionObjectHpRate: "Resource Health",
+            // CollectionObjectRespawnSpeedRate: "Resource Respawn",
+            // EnemyDropItemRate: "Enemy Drops",
 
             // Player
-            PlayerDamageRateAttack: "Player Damage",
-            PlayerDamageRateDefense: "Player Defense",
-            PlayerStomachDecreaceRate: "Player Hunger",
-            PlayerStaminaDecreaceRate: "Player Stamina",
-            PlayerAutoHPRegeneRate: "Player HP Regen",
+            // PlayerDamageRateAttack: "Player Damage",
+            // PlayerDamageRateDefense: "Player Defense",
+            // PlayerStomachDecreaceRate: "Player Hunger",
+            // PlayerStaminaDecreaceRate: "Player Stamina",
+            // PlayerAutoHPRegeneRate: "Player HP Regen",
             // PlayerAutoHpRegeneRateInSleep: "Sleep HP Regen",
-            ItemWeightRate: "Item Weight",
+            // ItemWeightRate: "Item Weight",
 
             // Pal
-            PalDamageRateAttack: "Pal Damage",
-            PalDamageRateDefense: "Pal Defense",
-            PalStomachDecreaceRate: "Pal Hunger",
-            PalStaminaDecreaceRate: "Pal Stamina",
-            PalAutoHPRegeneRate: "Pal HP Regen",
+            // PalDamageRateAttack: "Pal Damage",
+            // PalDamageRateDefense: "Pal Defense",
+            // PalStomachDecreaceRate: "Pal Hunger",
+            // PalStaminaDecreaceRate: "Pal Stamina",
+            // PalAutoHPRegeneRate: "Pal HP Regen",
             // PalAutoHpRegeneRateInSleep: "Pal Sleep HP Regen",
 
             // Building
-            BaseCampMaxNumInGuild: "Bases Per Guild",
-            BaseCampWorkerMaxNum: "Workers Per Base",
-            BuildObjectHpRate: "Structure Health",
-            BuildObjectDamageRate: "Structure Damage Taken",
-            BuildObjectDeteriorationDamageRate: "Structure Decay",
+            // BaseCampMaxNumInGuild: "Bases Per Guild",
+            // BaseCampWorkerMaxNum: "Workers Per Base",
+            // BuildObjectHpRate: "Structure Health",
+            // BuildObjectDamageRate: "Structure Damage Taken",
+            // BuildObjectDeteriorationDamageRate: "Structure Decay",
             // BaseCampMaxNum: "Total Base Limit",
             // MaxBuildingLimitNum: "Building Limit",
 
@@ -96,18 +96,18 @@ async function loadPalworldSettings() {
             // RespawnPenaltyTimeScale: "Respawn Penalty Scale",
 
             // Multiplayer
-            GuildPlayerMaxNum: "Guild Size",
+            // GuildPlayerMaxNum: "Guild Size",
             // ChatPostLimitPerMinute: "Chat Rate Limit",
             // DropItemMaxNum: "Max World Drops",
             // DropItemAliveMaxHours: "Dropped Item Lifetime",
 
             // Features
-            bEnableFastTravel: "Fast Travel",
+            // bEnableFastTravel: "Fast Travel",
             // bEnableFastTravelOnlyBaseCamp: "Base-Only Fast Travel",
-            bIsPvP: "PvP",
-            bEnableFriendlyFire: "Friendly Fire",
-            bEnableInvaderEnemy: "Raids",
-            bEnableNonLoginPenalty: "Offline Raids",
+            // bIsPvP: "PvP",
+            // bEnableFriendlyFire: "Friendly Fire",
+            // bEnableInvaderEnemy: "Raids",
+            // bEnableNonLoginPenalty: "Offline Raids",
             // bEnablePlayerToPlayerDamage: "Player Damage",
             // bExistPlayerAfterLogout: "Remain After Logout",
             // bCanPickupOtherGuildDeathPenaltyDrop: "Loot Other Guild Death Bags",
@@ -122,7 +122,7 @@ async function loadPalworldSettings() {
             // bAllowGlobalPalboxImport: "Global Palbox Import",
 
             // Equipment
-            EquipmentDurabilityDamageRate: "Durability Loss",
+            // EquipmentDurabilityDamageRate: "Durability Loss",
 
             // Misc
             // bUseAuth: "Authentication",
