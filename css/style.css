@@ -122,7 +122,7 @@ body {
 ========================== */
 
 main {
-    max-width: 1280px;
+    max-width: 1440px;
     margin: auto;
     padding: 0 30px 30px;
 }
@@ -139,7 +139,6 @@ main {
 }
 
 .sidebar {
-    position: sticky;
     top: 24px;
     height: fit-content;
     display: flex;
@@ -155,7 +154,6 @@ main {
 .hero {
     position: relative;
     height: 400px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,17 +164,8 @@ main {
         radial-gradient(ellipse 900px 500px at 50% 110%, rgba(0, 0, 0, 0.5), transparent 70%),
         linear-gradient(180deg, rgba(6, 11, 10, 0.6), rgba(6, 11, 10, 0.9)),
         url("../images/library_hero.png");
-
-    /* One value for each background layer */
-    background-size:
-        auto,   /* radial gradient */
-        auto,   /* linear gradient */
-        100%;   /* image - zoom in */
-
-    background-position:
-        center,
-        center,
-        center 70%;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero::before {
