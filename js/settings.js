@@ -14,7 +14,8 @@ async function loadPalworldSettings() {
             return;
         }
 
-        const raw = match[1];
+        const raw = match[1]
+        .replace(/^\s*;.*$/gm, ""); // remove INI comment lines
 
         // Split on commas that are NOT inside quotes or parentheses
         const entries = raw.match(/(?:[^,(]|\([^)]*\))+?=(?:"[^"]*"|\([^)]*\)|[^,]+)(?=,|$)/g);
