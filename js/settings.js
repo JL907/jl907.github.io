@@ -216,11 +216,7 @@ async function loadPalworldSettings() {
                 const num = Number(value);
 
                 // Display all rate values as "2x", "0.5x", etc.
-                if (key.endsWith("Rate")) {
-                    return `${num}x`;
-                }
-
-                if (key.endsWith("RateAttack") || key.endsWith("RateDefense")) {
+                if (["Rate", "RateAttack", "RateDefense", "InSleep"].some(suffix => key.endsWith(suffix))) {
                     return `${num}x`;
                 }
 
