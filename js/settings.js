@@ -32,102 +32,105 @@ async function loadPalworldSettings() {
             settings[key] = value.replace(/^"|"$/g, "");
         }
 
-        const display = {
-            // Server
-            // ServerName: "Server Name",
-            // ServerDescription: "Server Description",
-            ServerPlayerMaxNum: "Player Limit",
-            CrossplayPlatforms: "Crossplay",
-            // CoopPlayerMaxNum: "Co-op Player Limit",
-            // Region: "Region",
-
-            // World
-            // DayTimeSpeedRate: "Day Length",
-            // NightTimeSpeedRate: "Night Length",
-            // SupplyDropSpan: "Supply Drop Interval",
-            // AutoSaveSpan: "Auto Save Interval",
-
-            // Progression
-            // ExpRate: "Experience Rate",
-            // WorkSpeedRate: "Work Speed",
-            PalEggDefaultHatchingTime: "Egg Hatch Time",
-
-            // Pals
-            // PalCaptureRate: "Capture Rate",
-            // PalSpawnNumRate: "Pal Spawn Rate",
-            // EnablePredatorBossPal: "Predator Bosses",
-            // bIsRandomizerPalLevelRandom: "Random Pal Levels",
-
-            // Resource Gathering
-            // CollectionDropRate: "Resource Drops",
-            // CollectionObjectHpRate: "Resource Health",
-            // CollectionObjectRespawnSpeedRate: "Resource Respawn",
-            // EnemyDropItemRate: "Enemy Drops",
-
-            // Player
-            // PlayerDamageRateAttack: "Player Damage",
-            // PlayerDamageRateDefense: "Player Defense",
-            // PlayerStomachDecreaceRate: "Player Hunger",
-            // PlayerStaminaDecreaceRate: "Player Stamina",
-            // PlayerAutoHPRegeneRate: "Player HP Regen",
-            // PlayerAutoHpRegeneRateInSleep: "Sleep HP Regen",
-            // ItemWeightRate: "Item Weight",
-
-            // Pal
-            // PalDamageRateAttack: "Pal Damage",
-            // PalDamageRateDefense: "Pal Defense",
-            // PalStomachDecreaceRate: "Pal Hunger",
-            // PalStaminaDecreaceRate: "Pal Stamina",
-            // PalAutoHPRegeneRate: "Pal HP Regen",
-            // PalAutoHpRegeneRateInSleep: "Pal Sleep HP Regen",
-
-            // Building
-            // BaseCampMaxNumInGuild: "Bases Per Guild",
-            // BaseCampWorkerMaxNum: "Workers Per Base",
-            // BuildObjectHpRate: "Structure Health",
-            // BuildObjectDamageRate: "Structure Damage Taken",
-            // BuildObjectDeteriorationDamageRate: "Structure Decay",
-            // BaseCampMaxNum: "Total Base Limit",
-            // MaxBuildingLimitNum: "Building Limit",
-
-            // Gameplay
-            DeathPenalty: "Death Penalty",
-            // BlockRespawnTime: "Respawn Time",
-            // RespawnPenaltyTimeScale: "Respawn Penalty Scale",
-
-            // Multiplayer
-            // GuildPlayerMaxNum: "Guild Size",
-            // ChatPostLimitPerMinute: "Chat Rate Limit",
-            // DropItemMaxNum: "Max World Drops",
-            // DropItemAliveMaxHours: "Dropped Item Lifetime",
-
-            // Features
-            // bEnableFastTravel: "Fast Travel",
-            // bEnableFastTravelOnlyBaseCamp: "Base-Only Fast Travel",
-            // bIsPvP: "PvP",
-            // bEnableFriendlyFire: "Friendly Fire",
-            // bEnableInvaderEnemy: "Raids",
-            // bEnableNonLoginPenalty: "Offline Raids",
-            // bEnablePlayerToPlayerDamage: "Player Damage",
-            // bExistPlayerAfterLogout: "Remain After Logout",
-            // bCanPickupOtherGuildDeathPenaltyDrop: "Loot Other Guild Death Bags",
-            // bEnableDefenseOtherGuildPlayer: "Protect Other Guild Players",
-            // bBuildAreaLimit: "Build Area Limit",
-            // bShowPlayerList: "Player List",
-            // bIsShowJoinLeftMessage: "Join/Leave Messages",
-            // bAllowClientMod: "Client Mods",
-
-            // Palbox
-            // bAllowGlobalPalboxExport: "Global Palbox Export",
-            // bAllowGlobalPalboxImport: "Global Palbox Import",
-
-            // Equipment
-            // EquipmentDurabilityDamageRate: "Durability Loss",
-
-            // Misc
-            // bUseAuth: "Authentication",
-            // bIsUseBackupSaveData: "Automatic Backups",
-            // LogFormatType: "Log Format"
+        // Settings grouped by category. Each category maps setting keys to display labels.
+        // Comment/uncomment individual keys to control what's shown.
+        const categories = {
+            "Server": {
+                // ServerName: "Server Name",
+                // ServerDescription: "Server Description",
+                ServerPlayerMaxNum: "Player Limit",
+                CrossplayPlatforms: "Crossplay",
+                // CoopPlayerMaxNum: "Co-op Player Limit",
+                // Region: "Region",
+            },
+            "World": {
+                DayTimeSpeedRate: "Day Length",
+                NightTimeSpeedRate: "Night Length",
+                // SupplyDropSpan: "Supply Drop Interval",
+                // AutoSaveSpan: "Auto Save Interval",
+            },
+            "Progression": {
+                ExpRate: "Experience Rate",
+                WorkSpeedRate: "Work Speed",
+                PalEggDefaultHatchingTime: "Egg Hatch Time",
+            },
+            "Pals": {
+                PalCaptureRate: "Capture Rate",
+                PalSpawnNumRate: "Pal Spawn Rate",
+                // EnablePredatorBossPal: "Predator Bosses",
+                // bIsRandomizerPalLevelRandom: "Random Pal Levels",
+            },
+            "Resource Gathering": {
+                CollectionDropRate: "Resource Drops",
+                CollectionObjectHpRate: "Resource Health",
+                CollectionObjectRespawnSpeedRate: "Resource Respawn",
+                EnemyDropItemRate: "Enemy Drops",
+            },
+            "Player": {
+                PlayerDamageRateAttack: "Player Damage",
+                PlayerDamageRateDefense: "Player Defense",
+                PlayerStomachDecreaceRate: "Player Hunger",
+                PlayerStaminaDecreaceRate: "Player Stamina",
+                PlayerAutoHPRegeneRate: "Player HP Regen",
+                PlayerAutoHpRegeneRateInSleep: "Sleep HP Regen",
+                ItemWeightRate: "Item Weight",
+            },
+            "Pal": {
+                PalDamageRateAttack: "Pal Damage",
+                PalDamageRateDefense: "Pal Defense",
+                PalStomachDecreaceRate: "Pal Hunger",
+                PalStaminaDecreaceRate: "Pal Stamina",
+                PalAutoHPRegeneRate: "Pal HP Regen",
+                PalAutoHpRegeneRateInSleep: "Pal Sleep HP Regen",
+            },
+            "Building": {
+                BaseCampMaxNumInGuild: "Bases Per Guild",
+                BaseCampWorkerMaxNum: "Workers Per Base",
+                BuildObjectHpRate: "Structure Health",
+                BuildObjectDamageRate: "Structure Damage Taken",
+                BuildObjectDeteriorationDamageRate: "Structure Decay",
+                BaseCampMaxNum: "Total Base Limit",
+                MaxBuildingLimitNum: "Building Limit",
+            },
+            "Gameplay": {
+                DeathPenalty: "Death Penalty",
+                // BlockRespawnTime: "Respawn Time",
+                // RespawnPenaltyTimeScale: "Respawn Penalty Scale",
+            },
+            "Multiplayer": {
+                // GuildPlayerMaxNum: "Guild Size",
+                // ChatPostLimitPerMinute: "Chat Rate Limit",
+                // DropItemMaxNum: "Max World Drops",
+                // DropItemAliveMaxHours: "Dropped Item Lifetime",
+            },
+            "Features": {
+                bEnableFastTravel: "Fast Travel",
+                bEnableFastTravelOnlyBaseCamp: "Base-Only Fast Travel",
+                bIsPvP: "PvP",
+                bEnableFriendlyFire: "Friendly Fire",
+                bEnableInvaderEnemy: "Raids",
+                bEnableNonLoginPenalty: "Offline Raids",
+                bEnablePlayerToPlayerDamage: "Player Damage",
+                bExistPlayerAfterLogout: "Remain After Logout",
+                // bCanPickupOtherGuildDeathPenaltyDrop: "Loot Other Guild Death Bags",
+                // bEnableDefenseOtherGuildPlayer: "Protect Other Guild Players",
+                // bBuildAreaLimit: "Build Area Limit",
+                // bShowPlayerList: "Player List",
+                // bIsShowJoinLeftMessage: "Join/Leave Messages",
+                // bAllowClientMod: "Client Mods",
+            },
+            "Palbox": {
+                // bAllowGlobalPalboxExport: "Global Palbox Export",
+                // bAllowGlobalPalboxImport: "Global Palbox Import",
+            },
+            "Equipment": {
+                EquipmentDurabilityDamageRate: "Durability Loss",
+            },
+            "Misc": {
+                // bUseAuth: "Authentication",
+                // bIsUseBackupSaveData: "Automatic Backups",
+                // LogFormatType: "Log Format"
+            },
         };
 
         function format(key, value) {
@@ -230,20 +233,34 @@ async function loadPalworldSettings() {
 
         list.innerHTML = "";
 
-        for (const [key, label] of Object.entries(display)) {
+        for (const [category, fields] of Object.entries(categories)) {
 
-            if (!(key in settings))
-                continue;
+            // Collect only the fields that are both uncommented AND present in settings
+            const rows = Object.entries(fields).filter(([key]) => key in settings);
+
+            if (rows.length === 0)
+                continue; // skip empty categories entirely
 
             list.insertAdjacentHTML(
                 "beforeend",
-                `
-                <div class="setting">
-                    <dt>${label}</dt>
-                    <dd>${format(key, settings[key])}</dd>
-                </div>
-                `
+                `<h3 class="settings-category">${category}</h3>`
             );
+
+            for (const [key, label] of rows) {
+                list.insertAdjacentHTML(
+                    "beforeend",
+                    `
+                    <div class="setting">
+                        <dt>${label}</dt>
+                        <dd>${format(key, settings[key])}</dd>
+                    </div>
+                    `
+                );
+            }
+        }
+
+        if (!list.innerHTML.trim()) {
+            list.innerHTML = "<div><dt>No settings</dt><dd>configured to display.</dd></div>";
         }
 
     } catch (err) {
